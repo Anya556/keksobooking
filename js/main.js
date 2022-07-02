@@ -20,25 +20,75 @@ let getRandomInteger = (min, max, countAfterPoint) => {
   return number.toFixed(countAfterPoint);
 }
 //console.log(getRandomInteger(4.3, 15.2, 1));
+const getnumberPng = (number) => {
+  for (let i = 1; i < number; i++){
+    return number = '0'+ i;
+  }
+};
+console.log(getnumberPng(10));
 
 const Author = {
-  avatar: 'img/avatars/user' + getSomeNumber(1, 10) + '.png',
+  avatar: 'img/avatars/user' + getnumberPng(10) + '.png',
+};
+console.log(Author);
+const getRandomArrayElement = (elements) => {
+  return elements[getSomeNumber(0, elements.length -1)];
 };
 
-const Offer = {};
-const Title = 'The best offer!';
-const Adress;
-const price = getSomeNumber(5, 40);
-const TYPES = [palace, flat, house, bungalow];
-const Rooms = getSomeNumber(1, 100);
-const Guests = getSomeNumber(1, 5);
-const CHECKIN = ['12:00', '13:00', '14:00'];
-const CHECKOUT = ['12:00', '13:00', '14:00'];
-const FEATURES = ['wifi', 'dishwasher', 'parking', 'washer', 'elevator', 'conditioner'];
-const Description = 'The best offer for families with children.';
-const PHOTOS = ['http://o0.github.io/assets/images/tokyo/hotel1.jpg', 'http://o0.github.io/assets/images/tokyo/hotel2.jpg', 'http://o0.github.io/assets/images/tokyo/hotel3.jpg'];
+const TYPES = [
+  'palace',
+  'flat',
+  'house',
+  'bungalow'];
+const CHECKIN = [
+  '12:00',
+  '13:00',
+  '14:00'];
+const CHECKOUT = [
+  '12:00',
+  '13:00',
+  '14:00'];
+const FEATURES = [
+  'wifi',
+  'dishwasher',
+  'parking',
+  'washer',
+  'elevator',
+  'conditioner'];
+
+const RANDOM_FEATURES = new Array(3).fill(null).map(() => FEATURES[3]);
+console.log(RANDOM_FEATURES);
+//const similarOffers = new Array(SIMILAR_OFFER_COUNT).fill(null).map(() => createOffer());
+const PHOTOS = [
+  'http://o0.github.io/assets/images/tokyo/hotel1.jpg',
+  'http://o0.github.io/assets/images/tokyo/hotel2.jpg',
+  'http://o0.github.io/assets/images/tokyo/hotel3.jpg'];
+
+const SIMILAR_OFFER_COUNT = 10;
 
 const Location = {
   x: getRandomInteger(35.65000, 35.70000, 5),
   y: getRandomInteger(139.70000, 139.80000, 5),
 };
+
+console.log(Location);
+
+const createOffer = () => {
+  return {
+    title:'The best offer!',
+    address: getRandomInteger(35.65000, 35.70000, 5) + ', ' + getRandomInteger(139.70000, 139.80000, 5),
+    price: getSomeNumber(30, 100),
+    type: getRandomArrayElement(TYPES),
+    rooms:  getSomeNumber(1, 3),
+    guests: getSomeNumber(1, 8),
+    checkin: getRandomArrayElement(CHECKIN),
+    checkout: getRandomArrayElement(CHECKOUT),
+    features: '', //later
+    description: 'The best offer for families with children.',
+    photos: '', //later
+  };
+};
+console.log(createOffer());
+
+const similarOffers = new Array(SIMILAR_OFFER_COUNT).fill(null).map(() => createOffer());
+console.log(similarOffers);
