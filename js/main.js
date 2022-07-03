@@ -56,13 +56,47 @@ const FEATURES = [
   'elevator',
   'conditioner'];
 
-const RANDOM_FEATURES = new Array(3).fill(null).map(() => FEATURES[3]);
-console.log(RANDOM_FEATURES);
-//const similarOffers = new Array(SIMILAR_OFFER_COUNT).fill(null).map(() => createOffer());
+
+
+const getNewFeature = () => {
+  let newArray = [];
+  let newArrayLength = getSomeNumber(1, FEATURES.length);
+
+  for (let k= 1; k <= newArrayLength ; k++) {
+    let indexOfArray = getSomeNumber(0, FEATURES.length-1);
+    let valueOfIndex = FEATURES[indexOfArray];
+    if (!newArray.includes(valueOfIndex)) {
+      newArray.push(valueOfIndex);
+    }
+
+  }
+  return newArray;
+}
+console.log(getNewFeature());
+
 const PHOTOS = [
   'http://o0.github.io/assets/images/tokyo/hotel1.jpg',
   'http://o0.github.io/assets/images/tokyo/hotel2.jpg',
   'http://o0.github.io/assets/images/tokyo/hotel3.jpg'];
+
+
+const getNewPHOTOS = () => {
+
+  let newArray = [];
+  let newArrayLength = getSomeNumber(1, PHOTOS.length);
+
+  for (let k= 1; k <= newArrayLength ; k++) {
+    let indexOfArray = getSomeNumber(0, PHOTOS.length-1);
+    let valueOfIndex = PHOTOS[indexOfArray];
+    if (!newArray.includes(valueOfIndex)) {
+      newArray.push(valueOfIndex);
+    }
+
+  }
+  return newArray;
+};
+console.log(getNewPHOTOS());
+
 
 const SIMILAR_OFFER_COUNT = 10;
 
@@ -83,9 +117,9 @@ const createOffer = () => {
     guests: getSomeNumber(1, 8),
     checkin: getRandomArrayElement(CHECKIN),
     checkout: getRandomArrayElement(CHECKOUT),
-    features: '', //later
+    features: getNewFeature(),
     description: 'The best offer for families with children.',
-    photos: '', //later
+    photos: getNewPHOTOS(),
   };
 };
 console.log(createOffer());
