@@ -1,3 +1,11 @@
+//A number between 1 and 9 with a leading zero
+const getNumberPng = () => {
+
+  for (let i = 1; i <= 9; i++){
+    return '0'+ i;
+  }
+};
+
 let getSomeNumber = (min, max) => {
   if (min < 0 || max < 0 || max < min) {
     return ('Incorrect range');
@@ -23,4 +31,4 @@ const getRandomArrayElement = (elements) => {
   return elements[getSomeNumber(0, elements.length -1)];
 };
 
-export { getSomeNumber, getRandomInteger, getRandomArrayElement };
+export { getNumberPng, getSomeNumber, getRandomInteger, getRandomArrayElement };
