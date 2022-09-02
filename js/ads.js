@@ -12,42 +12,6 @@ const typeValues = {
 const cardTemplate = document.querySelector('#card').content;
 const mapsBlock = document.querySelector('#map-canvas');
 
-
-/*const renderFeatures = function (items, container) {
-  if(items) {
-    container.innerHTML = '';
-    const fragment = document.createDocumentFragment();
-
-    items.forEach(function (item){
-      let element = document.createElement('li');
-      element.className = 'popup__feature popup__feature--' + item;
-    });
-
-    container.appendChild(fragment);
-  } else {
-    container.classList.add('hidden');
-  }
-
-};
-*/
-/*const renderPhotos = function (items, container){
-  if (items){
-    const photoItem = container.querySelector('.popup__photo');
-    container.innerHTML = '';
-    var fragment = document.createDocumentFragment();
-
-    items.forEach(function (item) {
-      const photo = photoItem.cloneNode(true);
-      photo.src = item;
-      fragment.appendChild(photo);
-    });
-
-    container.appendChild(fragment);
-  } else {
-    container.classList.add('hidden');
-  }
-};
-*/
 const renderOffer = (offer /*{ title, address, price, type, rooms, guests, checkin, checkout, description }*/) => {
   const offerCard = cardTemplate.cloneNode(true);
 
@@ -55,6 +19,7 @@ const renderOffer = (offer /*{ title, address, price, type, rooms, guests, check
   offerCard.querySelector('.popup__text--address').textContent = offer.address;
   offerCard.querySelector('.popup__text--price').textContent = offer.price + ' ₽/ночь';
   offerCard.querySelector('.popup__type').textContent = typeValues[offer.type];
+  //console.log(typeValues[offer.type]);
   offerCard.querySelector('.popup__text--capacity').textContent = offer.rooms + ' комнаты для ' + offer.guests + '  гостей';
   offerCard.querySelector('.popup__text--time').textContent = 'Заезд после ' + offer.checkin + ', выезд до ' + offer.checkout;
 
@@ -63,7 +28,7 @@ const renderOffer = (offer /*{ title, address, price, type, rooms, guests, check
     featuresNode.querySelector('.popup__feature--' + feature).textContent = feature;
   };
 
-  if(!!features.length){
+  if( !!features.length ){
     features.forEach(feature => addFeatures(feature));
   } else {
     featuresNode.classList.add('hidden');
