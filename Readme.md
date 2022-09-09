@@ -1,5 +1,5 @@
  Keksobooking is a service for  placing  ads  for  renting  out real estate in the center of  Tokyo. Users are given the opportunity to  place ads about  their real estate or view already placed ads. 
-The project shows my knowledge in the #JavaScript.
+The project shows my knowledge in JavaScript.
 
 # Work in progress
 
